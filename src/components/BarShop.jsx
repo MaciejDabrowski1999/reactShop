@@ -2,14 +2,12 @@ import { useState } from 'react'
 import { shop } from '../Utils/shop'
 
 export default function BarShop() {
-	const [choseCategory, setChoseCategory] = useState({
-		validation: false,
+	const [chosenCategory, setChosenCategory] = useState({
+		check: false,
 		category: 'rtv',
 	})
-	const [listObject, setListoOfObject] = useState(['TV'])
-
 	function handleClick(prop, category) {
-		setChoseCategory({ validation: prop, category: category })
+		setChosenCategory({ validation: prop, category: category })
 	}
 
 	return (
@@ -18,8 +16,8 @@ export default function BarShop() {
 				<button onClick={() => handleClick(false, null)}>Powrót</button>
 			</p>
 			<ul>
-				{choseCategory.validation
-					? Object.keys(shop[choseCategory.category]).map((item, index) => {
+				{chosenCategory.validation
+					? Object.keys(shop[chosenCategory.category]).map((item, index) => {
 							return (
 								<li key={index}>
 									<button>{item}</button>
